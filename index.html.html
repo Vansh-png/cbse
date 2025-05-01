@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>CBSE Results 2025</title>
+  <style>
+    body { font-family: Arial, sans-serif; background-color: #f4f4f4; margin: 0; padding: 0; }
+    .header { background-color: #00cdd2; color: white; padding: 20px; text-align: right; }
+    .header h1 { float: left; margin: 0; font-size: 18px; color: black; }
+    .container {
+      background-color: white; width: 600px; margin: 50px auto;
+      padding: 30px; border-radius: 10px; box-shadow: 0 0 15px rgba(0,0,0,0.1);
+    }
+    .container h2 { text-align: center; margin-bottom: 30px; }
+    input[type="text"] {
+      width: 100%; padding: 12px; margin: 10px 0; box-sizing: border-box;
+    }
+    .btn-group { display: flex; justify-content: space-between; margin-top: 20px; }
+    button {
+      padding: 10px 20px; border: none; color: white; cursor: pointer; font-size: 16px;
+    }
+    .submit-btn { background-color: #007bff; }
+    .reset-btn { background-color: #dc3545; }
+    .captcha-box {
+      display: flex; align-items: center; gap: 10px;
+    }
+    .captcha-code {
+      font-weight: bold; font-size: 20px;
+      background-color: #e9ecef; padding: 10px;
+      user-select: none;
+    }
+    .disclaimer {
+      font-size: 12px; color: #555; margin-top: 30px; text-align: justify;
+    }
+    .result {
+      display: none;
+    }
+    table { border-collapse: collapse; width: 100%; margin-top: 20px; }
+    th, td { border: 1px solid #444; padding: 8px; text-align: center; }
+    th { background-color: #008cba; color: white; }
+    .highlight { background-color: #b3e5fc; font-weight: bold; }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <h1>केंद्रीय माध्यमिक शिक्षा बोर्ड<br>Central Board of Secondary Education</h1>
+    <div><strong>https://cbseresults.nic.in</strong><br>Examination Results 2025</div>
+  </div>
+
+  <div class="container" id="formContainer">
+    <h2>Senior School Certificate Examination (Class XII) Results 2025</h2>
+    <form id="resultForm">
+      <label>Enter Your Roll Number:</label>
+      <input type="text" id="roll" placeholder="Roll Number" required>
+
+      <label>Enter School No.:</label>
+      <input type="text" id="school" placeholder="School Number" required>
+
+      <label>Enter Centre No.:</label>
+      <input type="text" id="centre" placeholder="Centre Number" required>
+
+      <label>Enter Admit Card ID:</label>
+      <input type="text" id="admit" placeholder="Admit Card ID" required>
+
+      <label>Enter Security Pin <small>(case sensitive)</small>:</label>
+      <div class="captcha-box">
+        <input type="text" id="captchaInput" placeholder="Enter Captcha" required>
+        <div class="captcha-code" id="captchaText"></div>
+      </div>
+
+      <div class="btn-group">
+        <button class="submit-btn" type="submit">Submit</button>
+        <button class="reset-btn" type="reset">Reset</button>
+      </div>
+    </form>
+
+    <div class="disclaimer">
+      <strong>Disclaimer:</strong> Neither NIC nor CBSE is responsible for any inadvertent error that may have 
+      crept in the results being published on NET. The results published on net are for immediate information 
+      to the examinees. These cannot be treated as original mark sheets. Original mark sheets have been issued 
+      by the Board separately.
+    </div>
+  </div>
+
+  <!-- Result Section -->
+  <div class="container result" id="resultSection">
+    <h2>CBSE Result 2025</h2>
+    <p><strong>Roll No:</strong> 25685852</p>
+    <p><strong>Candidate Name:</strong> KRISHNA</p>
+    <p><strong>Mother's Name:</strong> LALTESH</p>
+    <p><strong>Father's Name:</strong> BABLU</p>
+    <p><strong>School's Name:</strong> <em>Private Candidate</em></p>
+
+    <table>
+      <tr><th>SUB NAME</th><th>THEORY</th><th>Prac./IA/Proj.</th><th>MARKS</th></tr>
+      <tr><td>ENGLISH CORE</td><td>030</td><td>018</td><td>048</td></tr>
+      <tr><td>PHYSICS</td><td>035</td><td>028</td><td>063</td></tr>
+      <tr><td>CHEMISTRY</td><td>036</td><td>028</td><td>064</td></tr>
+      <tr><td>BIOLOGY</td><td>035</td><td>027</td><td>062</td></tr>
+      <tr><td>PHYSICAL EDUCATION</td><td>040</td><td>028</td><td>068</td></tr>
+      <tr><td>WORK EXPERIENCE</td><td colspan="3"></td></tr>
+      <tr><td>HEALTH & PHYSICAL EDUCATION</td><td colspan="3"></td></tr>
+      <tr><td>GENERAL STUDIES</td><td colspan="3"></td></tr>
+    </table>
+    <p class="highlight">ESSENTIAL REPEAT</p>
+
+    <div class="note">
+      <strong>Note:</strong> R.L. - Result Later, N.E. - Not Eligible, R.W. - Result Withheld, ABST - Absent,<br>
+      COMP - Compartment, UFM - Unfairmeans, XXXX - Improvement, SJD - Subjudice, N.R. - Not Registered, R.T - Repeat in Theory, R.P. - Repeat in Practical
+    </div>
+  </div>
+
+  <script>
+    function generateCaptcha(length = 6) {
+      const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+      let result = '';
+      for (let i = 0; i < length; i++) {
+        result += chars.charAt(Math.floor(Math.random() * chars.length));
+      }
+      return result;
+    }
+
+    const captchaValue = generateCaptcha();
+    document.getElementById("captchaText").textContent = captchaValue;
+
+    document.getElementById("resultForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+
+      const roll = document.getElementById("roll").value.trim();
+      const school = document.getElementById("school").value.trim();
+      const centre = document.getElementById("centre").value.trim();
+      const admit = document.getElementById("admit").value.trim();
+      const captchaInput = document.getElementById("captchaInput").value.trim();
+
+      if (
+        roll === "25685852" &&
+        school === "99999" &&
+        centre === "854430" &&
+        admit === "KL859944" &&
+        captchaInput === captchaValue
+      ) {
+        document.getElementById("formContainer").style.display = "none";
+        document.getElementById("resultSection").style.display = "block";
+      } else {
+        alert("Incorrect details or captcha. Please try again.");
+      }
+    });
+  </script>
+</body>
+</html>
